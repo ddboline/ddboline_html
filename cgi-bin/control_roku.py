@@ -45,7 +45,7 @@ def get_output( val , host = 'localhost' , portno = 10888 , socketfile = '/tmp/.
     if not ostr :
         return
 
-    print val.replace('command w','').replace('command','')
+    print ostr.replace('command w','').replace('command','')
 
     tmpfile = open( '/tmp/.remcom_control_file' , 'w' )
     tmpfile.write( '%s\n' % val )
