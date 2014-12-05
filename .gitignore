@@ -28,11 +28,7 @@ videos/crouton_saucy-arm-20140322-1746.tar.gz
 videos/crouton_saucy-x86_64-20140322-1734.tar.gz
 videos/temp.mp4
 videos/test.mp4
-videos/thumbnails/
-videos/thumbnails_tmp/
-videos/thumbnails_tv/
-videos/thumbnails_tv_tmp/
-videos/tmpKMdcPW.html
+videos/thumbnails*
 zpt_plots/
 .htpasswd
 garmin/
