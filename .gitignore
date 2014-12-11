@@ -17,8 +17,7 @@ television
 user_guide.pdf
 video
 video_queue.html
-videos/temp.mp4
-videos/test.mp4
+*.mp4
 videos/thumbnails*
 zpt_plots/
 .htpasswd
