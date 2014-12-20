@@ -30,6 +30,7 @@ your browser does not support the video tag
 </form>
 </p>
 
+<p>
 <a href="https://ddbolineathome.mooo.com/~ddboline/videos/thumbnails_tv/00000010.jpg" target="_blank">
 <img src="https://ddbolineathome.mooo.com/~ddboline/videos/thumbnails_tv/00000010.jpg" width=470 height=350 name="refresh2">
 </a>
@@ -37,6 +38,7 @@ your browser does not support the video tag
 <video src="https://ddbolineathome.mooo.com/~ddboline/videos/temp.mp4" controls="controls" width=470 height=350 id="refreshv2">
 your browser does not support the video tag
 </video>
+</p>
 
 <p>
 <button type="submit" onclick="processButtonData2('q');"> Quit </button>
@@ -56,10 +58,22 @@ your browser does not support the video tag
 </form>
 </p>
 
+<p>
+<a href="https://ddbolineathome.mooo.com/~ddboline/videos/test_time.png" target="_blank">
+<img src="https://ddbolineathome.mooo.com/~ddboline/videos/test_time.png" width=470 height=350 name="refresh3">
+</a>
+<a href="https://ddbolineathome.mooo.com/~ddboline/videos/test_fft.png" target="_blank">
+<img src="https://ddbolineathome.mooo.com/~ddboline/videos/test_fft.png" width=470 height=350 name="refresh4">
+</a>
+</p>
+
+
 <script language="JavaScript" type="text/javascript">
     var t = 60; // interval in seconds
     image1 = "https://ddbolineathome.mooo.com/~ddboline/videos/thumbnails/00000010.jpg";
     image2 = "https://ddbolineathome.mooo.com/~ddboline/videos/thumbnails_tv/00000010.jpg";
+    image3 = "https://ddbolineathome.mooo.com/~ddboline/videos/test_time.png";
+    image4 = "https://ddbolineathome.mooo.com/~ddboline/videos/test_fft.png";
     video1 = "https://ddbolineathome.mooo.com/~ddboline/videos/test.mp4";
     video2 = "https://ddbolineathome.mooo.com/~ddboline/videos/temp.mp4";
     function updateImage() {
@@ -67,6 +81,8 @@ your browser does not support the video tag
         tmp = "?"+tmp.getTime();
         document.images["refresh1"].src = image1+tmp;
         document.images["refresh2"].src = image2+tmp;
+        document.images["refresh3"].src = image3+tmp;
+        document.images["refresh4"].src = image4+tmp;
     }
     function Start() {
         updateImage();
@@ -78,8 +94,12 @@ your browser does not support the video tag
         tmp = "?"+tmp.getTime();
         vid1 = document.getElementById("refreshv1");
         vid2 = document.getElementById("refreshv2");
+        vid3 = document.getElementById("refreshv3");
+        vid4 = document.getElementById("refreshv4");
         vid1.src = video1+tmp;
         vid2.src = video2+tmp;
+        vid3.src = video3+tmp;
+        vid4.src = video4+tmp;
     }
     function processButtonData( value ) {
         var ostr = 'https://ddbolineathome.mooo.com/cgi-bin/control_roku.py?cmd=' + value
