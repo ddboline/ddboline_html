@@ -22,3 +22,6 @@ videos/thumbnails*
 zpt_plots/
 .htpasswd
 garmin/
+*.pyc
+*.eps
+*.png
