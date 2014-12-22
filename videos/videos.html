@@ -128,6 +128,7 @@ your browser does not support the video tag
         xmlhttp1.onload = function () {
             document.getElementById("rokuoutput").innerHTML = xmlhttp1.responseText;
             updateVideo();
+            updateImage();
         }
         document.getElementById("rokuoutput").innerHTML = "waiting"
         xmlhttp1.send(null);
