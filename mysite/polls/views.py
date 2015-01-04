@@ -11,12 +11,12 @@ from polls.models import Question, Choice
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_poll_list'
-    
+
     def get_queryset(self):
         """ Return last five published questions """
         return Question.objects.order_by('-pub_date')[:5]
 
-    
+
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
@@ -34,7 +34,7 @@ def vote(request, poll_id):
     except (KeyError, Choice.DoesNotExist):
         return render(request, 'polls/detail.html', {
             'poll': poll, 'error_message': "You didn't select a choice.",
-            })
+           })
     else:
         selected_choice.votes += 1
         selected_choice.save()
@@ -57,4 +57,3 @@ def vote(request, poll_id):
 #def results(request,  poll_id):
     #poll = get_object_or_404(Question, pk=poll_id)
     #return render(request, 'polls/results.html', {'poll': poll})
-
