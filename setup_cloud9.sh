@@ -34,3 +34,4 @@ sudo a2enmod userdir
 #      EOF
 # gpg2 --batch --gen-key foo
 
+sudo service apache2 restart
