@@ -33,3 +33,4 @@ sudo a2enmod userdir
 #           %echo done
 #      EOF
 # gpg2 --batch --gen-key foo
+
