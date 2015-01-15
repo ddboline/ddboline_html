@@ -128,7 +128,7 @@ your browser does not support the video tag
             document.getElementById("rokuoutput").innerHTML = xmlhttp0.responseText;
             updateImage();
         }
-        document.getElementById("rokuoutput").innerHTML = "waiting"
+        document.getElementById("rokuoutput").innerHTML = "waiting: " + value
         xmlhttp0.send(null);
     }
     function processButtonDataNonThumb( value ) {
@@ -149,7 +149,7 @@ your browser does not support the video tag
             updateVideo();
             updateImage();
         }
-        document.getElementById("rokuoutput").innerHTML = "waiting"
+        document.getElementById("rokuoutput").innerHTML = "waiting: test run"
         xmlhttp1.send(null);
         setTimeout("processButtonData('thumb');",2*1000);
     }
@@ -161,7 +161,7 @@ your browser does not support the video tag
             document.getElementById("remcomoutput").innerHTML = xmlhttp2.responseText;
             updateImage();
         }
-        document.getElementById("remcomoutput").innerHTML = "waiting"
+        document.getElementById("remcomoutput").innerHTML = "waiting: " + value
         xmlhttp2.send(null);
     }
     function processButtonDataV( value ) {
@@ -173,7 +173,7 @@ your browser does not support the video tag
             updateVideo();
             updateImage();
         }
-        document.getElementById("remcomoutput").innerHTML = "waiting"
+        document.getElementById("remcomoutput").innerHTML = "waiting: " + value
         xmlhttp3.send(null);
     }
     function processFormData2() {
