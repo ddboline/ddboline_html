@@ -81,16 +81,16 @@ your browser does not support the video tag
 
 <script language="JavaScript" type="text/javascript">
     var t = 60; // interval in seconds
-    image1 = "thumbnails/00000010.jpg";
-    image2 = "thumbnails_tv/00000010.jpg";
-    image3 = "test_time.png";
-    image4 = "test_fft.png";
-    image5 = "temp_time.png";
-    image6 = "temp_fft.png";
-    video1 = "test.mp4";
-    video2 = "temp.mp4";
+    var image1 = "thumbnails/00000010.jpg";
+    var image2 = "thumbnails_tv/00000010.jpg";
+    var image3 = "test_time.png";
+    var image4 = "test_fft.png";
+    var image5 = "temp_time.png";
+    var image6 = "temp_fft.png";
+    var video1 = "test.mp4";
+    var video2 = "temp.mp4";
     function updateImage() {
-        tmp = new Date();
+        var tmp = new Date();
         tmp = "?"+tmp.getTime();
         document.images["refresh1"].src = image1+tmp;
         document.images["refresh2"].src = image2+tmp;
@@ -105,14 +105,14 @@ your browser does not support the video tag
     }
     Start();
     function updateVideo() {
-        tmp = new Date();
+        var tmp = new Date();
         tmp = "?"+tmp.getTime();
-        vid1 = document.getElementById("refreshv1");
-        vid2 = document.getElementById("refreshv2");
-        vid3 = document.getElementById("refreshv3");
-        vid4 = document.getElementById("refreshv4");
-        vid5 = document.getElementById("refreshv5");
-        vid6 = document.getElementById("refreshv6");
+        var vid1 = document.getElementById("refreshv1");
+        var vid2 = document.getElementById("refreshv2");
+        var vid3 = document.getElementById("refreshv3");
+        var vid4 = document.getElementById("refreshv4");
+        var vid5 = document.getElementById("refreshv5");
+        var vid6 = document.getElementById("refreshv6");
         vid1.src = video1+tmp;
         vid2.src = video2+tmp;
         vid3.src = video3+tmp;
@@ -122,14 +122,14 @@ your browser does not support the video tag
     }
     function processButtonData( value ) {
         var ostr = '../../cgi-bin/control_roku.py?cmd=' + value
-        xmlhttp0 = new XMLHttpRequest();
-        xmlhttp0.open( "GET", ostr , true );
-        xmlhttp0.onload = function load_rokuoutput() {
-            document.getElementById("rokuoutput").innerHTML = xmlhttp0.responseText;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open( "GET", ostr , true );
+        xmlhttp.onload = function load_rokuoutput() {
+            document.getElementById("rokuoutput").innerHTML = xmlhttp.responseText;
             updateImage();
         }
         document.getElementById("rokuoutput").innerHTML = "waiting: " + value
-        xmlhttp0.send(null);
+        xmlhttp.send(null);
     }
     function processButtonDataNonThumb( value ) {
         processButtonData( value );
@@ -140,41 +140,41 @@ your browser does not support the video tag
         processButtonDataNonThumb( roku_cmd.value );
     }
     function processTestRunData() {
-        value = 'test run'
+        var value = 'test run'
         var ostr = '../../cgi-bin/control_roku.py?cmd=' + value
-        xmlhttp1 = new XMLHttpRequest();
-        xmlhttp1.open( "GET", ostr , true );
-        xmlhttp1.onload = function () {
-            document.getElementById("rokuoutput").innerHTML = xmlhttp1.responseText;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open( "GET", ostr , true );
+        xmlhttp.onload = function () {
+            document.getElementById("rokuoutput").innerHTML = xmlhttp.responseText;
             updateVideo();
             updateImage();
         }
         document.getElementById("rokuoutput").innerHTML = "waiting: test run"
-        xmlhttp1.send(null);
+        xmlhttp.send(null);
         setTimeout("processButtonData('thumb');",2*1000);
     }
     function processButtonData2( value ) {
         var ostr = '../../cgi-bin/control_remcom.py?cmd=' + value
-        xmlhttp2 = new XMLHttpRequest();
-        xmlhttp2.open( "GET", ostr , true );
-        xmlhttp2.onload = function load_remcomoutput() {
-            document.getElementById("remcomoutput").innerHTML = xmlhttp2.responseText;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open( "GET", ostr , true );
+        xmlhttp.onload = function load_remcomoutput() {
+            document.getElementById("remcomoutput").innerHTML = xmlhttp.responseText;
             updateImage();
         }
         document.getElementById("remcomoutput").innerHTML = "waiting: " + value
-        xmlhttp2.send(null);
+        xmlhttp.send(null);
     }
     function processButtonDataV( value ) {
         var ostr = '../../cgi-bin/control_remcom.py?cmd=' + value
-        xmlhttp3 = new XMLHttpRequest();
-        xmlhttp3.open( "GET", ostr , true );
-        xmlhttp3.onload = function load_remcomoutput() {
-            document.getElementById("remcomoutput").innerHTML = xmlhttp3.responseText;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open( "GET", ostr , true );
+        xmlhttp.onload = function load_remcomoutput() {
+            document.getElementById("remcomoutput").innerHTML = xmlhttp.responseText;
             updateVideo();
             updateImage();
         }
         document.getElementById("remcomoutput").innerHTML = "waiting: " + value
-        xmlhttp3.send(null);
+        xmlhttp.send(null);
     }
     function processFormData2() {
         var remcom_cmd = document.getElementById( 'remcom_cmd' );
