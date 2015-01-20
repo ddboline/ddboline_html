@@ -62,7 +62,7 @@ your browser does not support the video tag
 <button type="submit" onclick="processButtonData2('s');"> Select </button>
 <button type="submit" onclick="processButtonDataV('v');"> Video </button>
 <button type="submit" onclick="processButtonData2('t');"> TimeSeries </button>
-<button type="submit" onclick="updateImage();"> Update </button>
+<button type="submit" onclick="updateImage2();"> Update </button>
 <form action="../../cgi-bin/control_remcom.py" method="get">
 <input type="text" name="cmd" id="remcom_cmd"/>
 <input type="button" name="submitREMCOM" value="Submit" onclick="processFormData2();"/>
@@ -92,12 +92,15 @@ your browser does not support the video tag
     function updateImage() {
         var tmp = "?"+(new Date()).getTime();
         document.images["refresh1"].src = image1+tmp;
-        document.images["refresh2"].src = image2+tmp;
         document.images["refresh3"].src = image3+tmp;
-        document.images["refresh4"].src = image4+tmp;
         document.images["refresh5"].src = image5+tmp;
-        document.images["refresh6"].src = image6+tmp;
         processButtonData("output");
+    }
+    function updateImage2() {
+        var tmp = "?"+(new Date()).getTime();
+        document.images["refresh2"].src = image2+tmp;
+        document.images["refresh4"].src = image4+tmp;
+        document.images["refresh6"].src = image6+tmp;
     }
     function StartImage() {
         updateImage();
@@ -107,17 +110,12 @@ your browser does not support the video tag
     function updateVideo() {
         var tmp = "?"+(new Date()).getTime();
         var vid1 = document.getElementById("refreshv1");
-        var vid2 = document.getElementById("refreshv2");
-        var vid3 = document.getElementById("refreshv3");
-        var vid4 = document.getElementById("refreshv4");
-        var vid5 = document.getElementById("refreshv5");
-        var vid6 = document.getElementById("refreshv6");
         vid1.src = video1+tmp;
-        vid2.src = video2+tmp;
-        vid3.src = video3+tmp;
-        vid4.src = video4+tmp;
-        vid5.src = video5+tmp;
-        vid6.src = video6+tmp;
+    }
+    function updateVideo2() {
+        var tmp = "?"+(new Date()).getTime();
+        var vid2 = document.getElementById("refreshv2");
+        vid1.src = video1+tmp;
     }
     function processButtonData( value ) {
         var ostr = '../../cgi-bin/control_roku.py?cmd=' + value
@@ -169,7 +167,7 @@ your browser does not support the video tag
         xmlhttp.open( "GET", ostr , true );
         xmlhttp.onload = function load_remcomoutput() {
             document.getElementById("remcomoutput").innerHTML = xmlhttp.responseText;
-            updateImage();
+            updateImage2();
         }
         document.getElementById("remcomoutput").innerHTML = "waiting: " + value
         xmlhttp.send(null);
@@ -180,8 +178,8 @@ your browser does not support the video tag
         xmlhttp.open( "GET", ostr , true );
         xmlhttp.onload = function load_remcomoutput() {
             document.getElementById("remcomoutput").innerHTML = xmlhttp.responseText;
-            updateVideo();
-            updateImage();
+            updateVideo2();
+            updateImage2();
         }
         document.getElementById("remcomoutput").innerHTML = "waiting: " + value
         xmlhttp.send(null);
