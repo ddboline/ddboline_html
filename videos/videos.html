@@ -13,7 +13,7 @@ your browser does not support the video tag
 </p>
 
 <p>
-<button type="submit" onclick="processButtonData('thumb');"> Thumb </button>
+<button type="submit" onclick="processButtonDataWait('thumb');"> Thumb </button>
 <button type="submit" onclick="processButtonDataNonThumb('h');"> Home </button>
 <button type="submit" onclick="processButtonDataNonThumb('b');"> Back </button>
 <button type="submit" onclick="processButtonDataNonThumb('l');"> Left </button>
@@ -98,7 +98,7 @@ your browser does not support the video tag
         document.images["refresh4"].src = image4+tmp;
         document.images["refresh5"].src = image5+tmp;
         document.images["refresh6"].src = image6+tmp;
-        processButtonData( "output" );
+        processButtonData("output");
     }
     function StartImage() {
         updateImage();
@@ -129,13 +129,23 @@ your browser does not support the video tag
             document.getElementById("rokuoutput").innerHTML = xmlhttp.responseText;
             updateImage();
         }
+        xmlhttp.send(null);
+    }
+    function processButtonDataWait( value ) {
+        var ostr = '../../cgi-bin/control_roku.py?cmd=' + value
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open( "GET", ostr , true );
+        xmlhttp.onload = function load_rokuoutput() {
+            document.getElementById("rokuoutput").innerHTML = xmlhttp.responseText;
+            updateImage();
+        }
         document.getElementById("rokuoutput").innerHTML = 'waiting ' + value;
         xmlhttp.send(null);
     }
-    processButtonData( 'thumb' );
+    processButtonDataWait( 'thumb' );
     function processButtonDataNonThumb( value ) {
-        processButtonData( value );
-        setTimeout("processButtonData('thumb');",5*1000);
+        processButtonDataWait( value );
+        setTimeout("processButtonDataWait('thumb');",5*1000);
     }
     function processFormData() {
         var roku_cmd = document.getElementById( 'roku_cmd' );
@@ -153,7 +163,7 @@ your browser does not support the video tag
         }
         document.getElementById("rokuoutput").innerHTML = "waiting: test run"
         xmlhttp.send(null);
-        setTimeout("processButtonData('thumb');",5*1000);
+        setTimeout("processButtonDataWait('thumb');",5*1000);
     }
     function processButtonData2( value ) {
         var ostr = '../../cgi-bin/control_remcom.py?cmd=' + value
