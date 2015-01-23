@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["geochart"]});
+      google.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Number'],
+          ['China', 20368],
+          ['United States', 16153],
+          ['Sweden', 15636],
+          ['Tunisia', 5493],
+          ['Hong Kong', 322],
+          ['Spain', 227],
+          ['Taiwan', 163],
+          ['Russian Federation', 161],
+          ['Romania', 144],
+          ['India', 98],
+          ['Singapore', 91],
+          ['Italy', 79],
+          ['Viet Nam', 74],
+          ['Poland', 62],
+          ['Germany', 58],
+          ['South Korea', 44],
+          ['Brazil', 42],
+          ['Australia', 41],
+          ['Japan', 29],
+          ['Turkey', 28],
+          ['Colombia', 23],
+          ['Netherlands', 22],
+          ['Morocco', 22],
+          ['United Kingdom', 22],
+          ['France', 21],
+          ['Lithuania', 21],
+          ['Costa Rica', 21],
+          ['Kazakhstan', 21],
+          ['Panama', 20],
+          ['Kenya', 20],
+          ['Norway', 19],
+          ['Bahrain', 17],
+          ['Thailand', 16],
+          ['Saudi Arabia', 15],
+          ['Oman', 14],
+          ['Chile', 8],
+          ['Canada', 7],
+          ['Senegal', 7],
+          ['Ireland', 3],
+          ['Tanzania', 3],
+          ['United Arab Emirates', 2],
+          ['Malaysia', 2],
+          ['Moldova', 2],
+          ['Bangladesh', 1],
+          ['Hungary', 1],
+        ]);
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="regions_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
