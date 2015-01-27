@@ -104,11 +104,6 @@ your browser does not support the video tag
         document.images["refresh5"].src = image5+tmp2;
         document.images["refresh6"].src = image6+tmp2;
     }
-//     function StartImage() {
-//         updateImage();
-//         setTimeout("StartImage();",t*1000);
-//     }
-//     StartImage();
     function updateVideo() {
         var tmp = "?"+(new Date()).getTime();
         var vid1 = document.getElementById("refreshv1");
@@ -143,7 +138,6 @@ your browser does not support the video tag
         document.getElementById("rokuoutput").innerHTML = 'waiting';
         xmlhttp.send(null);
     }
-    processButtonDataWait( 'thumb' );
     function processButtonDataNonThumb( value ) {
         processButtonDataWait( value );
         setTimeout("processButtonData('thumb');",5*1000);
