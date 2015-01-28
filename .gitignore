@@ -26,3 +26,5 @@ garmin/
 *.pyc
 *.eps
 *.png
+*.sqlite3
+titanic_html
