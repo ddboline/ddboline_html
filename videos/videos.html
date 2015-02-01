@@ -24,7 +24,7 @@ your browser does not support the video tag
 <button type="submit" onclick="processButtonDataNonThumb('if');"> Info </button>
 <button type="submit" onclick="processTestRunData();"> Video </button>
 <button type="submit" onclick="processButtonDataNonThumb('time');"> TimeSeries </button>
-<button type="submit" onclick="updateImage();updateVideo();"> Update </button>
+<button type="submit" onclick="updateImageRoku();updateVideoRoku();"> Update </button>
 <form action="../../cgi-bin/control_roku.py" method="get">
 <input type="text" name="cmd" id="roku_cmd"/>
 <input type="button" name="submitROKU" value="Submit" onclick="processFormData();"/>
@@ -63,7 +63,7 @@ your browser does not support the video tag
 <button type="submit" onclick="processButtonData2('s');"> Select </button>
 <button type="submit" onclick="processButtonDataV('v');"> Video </button>
 <button type="submit" onclick="processButtonData2('t');"> TimeSeries </button>
-<button type="submit" onclick="updateImage2();updateVideo2();"> Update </button>
+<button type="submit" onclick="updateImageRemcom();updateVideoRemcom();"> Update </button>
 <form action="../../cgi-bin/control_remcom.py" method="get">
 <input type="text" name="cmd" id="remcom_cmd"/>
 <input type="button" name="submitREMCOM" value="Submit" onclick="processFormData2();"/>
@@ -91,75 +91,60 @@ your browser does not support the video tag
     var image6 = "temp_fft.png";
     var video1 = "test.mp4";
     var video2 = "temp.mp4";
-    function updateImage() {
+    function updateImageRoku() {
         var tmp = "?"+(new Date()).getTime();
         document.images["refresh1"].src = image1+tmp;
         document.images["refresh3"].src = image3+tmp;
         document.images["refresh4"].src = image4+tmp;
-        processButtonData("output");
     }
-    function updateImage2() {
+    function updateImageRemcom() {
         var tmp2 = "?"+(new Date()).getTime();
         document.images["refresh2"].src = image2+tmp2;
         document.images["refresh5"].src = image5+tmp2;
         document.images["refresh6"].src = image6+tmp2;
     }
-    function updateVideo() {
+    function updateVideoRoku() {
         var tmp = "?"+(new Date()).getTime();
         var vid1 = document.getElementById("refreshv1");
         vid1.src = video1+tmp;
     }
-    function updateVideo2() {
+    function updateVideoRemcom() {
         var tmp = "?"+(new Date()).getTime();
         var vid2 = document.getElementById("refreshv2");
         vid2.src = video2+tmp;
     }
-    // print output, don't change input
-    function processButtonData( value ) {
-        var ostr = '../../cgi-bin/control_roku.py?cmd=' + value
+    // cleanup commands, this sends a command, dumps output
+    function send_command_roku( command ) {
+        var ostr = '../../cgi-bin/control_roku.py?cmd=' + command;
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open( "GET", ostr , true );
         xmlhttp.onload = function load_rokuoutput() {
             document.getElementById("rokuoutput").innerHTML = xmlhttp.responseText;
-            updateImage();
         }
         xmlhttp.send(null);
     }
     // change input, print output
     function processButtonDataWait( value ) {
-        var ostr = '../../cgi-bin/control_roku.py?cmd=' + value;
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open( "GET", ostr , true );
-        xmlhttp.onload = function load_rokuoutput() {
-            document.getElementById("rokuoutput").innerHTML = xmlhttp.responseText;
-            updateImage();
-        }
         document.getElementById("rokuinput").innerHTML = value;
         document.getElementById("rokuoutput").innerHTML = 'waiting';
-        xmlhttp.send(null);
+        send_command_roku( value );
+        setTimeout("send_command_roku('output');", 5*1000);
+        setTimeout("updateImageRoku();", 5*1000);
     }
     function processButtonDataNonThumb( value ) {
         processButtonDataWait( value );
-        setTimeout("processButtonData('thumb');",5*1000);
+        setTimeout("send_command_roku('thumb');",5*1000);
     }
     function processFormData() {
         var roku_cmd = document.getElementById( 'roku_cmd' );
         processButtonDataNonThumb( roku_cmd.value );
     }
     function processTestRunData() {
-        var value = 'test'
-        var ostr = '../../cgi-bin/control_roku.py?cmd=' + value
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open( "GET", ostr , true );
-        xmlhttp.onload = function () {
-            document.getElementById("rokuoutput").innerHTML = xmlhttp.responseText;
-            updateVideo();
-            updateImage();
-        }
         document.getElementById("rokuinput").innerHTML = "test run";
         document.getElementById("rokuoutput").innerHTML = "waiting";
-        xmlhttp.send(null);
-        setTimeout("processButtonData('thumb');",5*1000);
+        send_command_roku( 'test');
+        setTimeout("updateImageRoku();",5*1000);
+        setTimeout("updateVideoRoku();",5*1000);
     }
     function processButtonData2( value ) {
         var ostr = '../../cgi-bin/control_remcom.py?cmd=' + value
@@ -167,7 +152,7 @@ your browser does not support the video tag
         xmlhttp.open( "GET", ostr , true );
         xmlhttp.onload = function load_remcomoutput() {
             document.getElementById("remcomoutput").innerHTML = xmlhttp.responseText;
-            updateImage2();
+            updateImageRemcom();
         }
         document.getElementById("remcominput").innerHTML = value;
         document.getElementById("remcomoutput").innerHTML = "waiting";
@@ -179,8 +164,8 @@ your browser does not support the video tag
         xmlhttp.open( "GET", ostr , true );
         xmlhttp.onload = function load_remcomoutput() {
             document.getElementById("remcomoutput").innerHTML = xmlhttp.responseText;
-            updateVideo2();
-            updateImage2();
+            updateVideoRemcom();
+            updateImageRemcom();
         }
         document.getElementById("remcominput").innerHTML = value;
         document.getElementById("remcomoutput").innerHTML = "waiting";
