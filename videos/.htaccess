@@ -9,7 +9,7 @@ RewriteRule ^/?secure/(.*) https://%{SERVER_NAME}/secure/$1 [R,L]
 # i.e.  http://www.example.com/secure/ to https://www.example.com/secure/
 # This means if you dont want to force HTTPS for all directories you can force it for a specific sub-section of the site.
 
-AuthType Basic
-AuthName "Restricted Files"
-AuthUserFile /home/ddboline/public_html/.htpasswd
-Require user ddboline guest
+#AuthType Basic
+#AuthName "Restricted Files"
+#AuthUserFile /home/ddboline/public_html/.htpasswd
+#Require user ddboline guest
