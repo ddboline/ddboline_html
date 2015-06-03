@@ -27,7 +27,10 @@ class OpenUnixSocketClient(object):
             net_type = socket.AF_INET
             addr_obj = (self.host, self.portno)
         self.sock = socket.socket(net_type, stm_type)
-        err = self.sock.connect(addr_obj)
+        try:
+            err = self.sock.connect(addr_obj)
+        except socket.error:
+            return None
         if err:
             print(err)
         return self.sock
@@ -44,6 +47,8 @@ def send_command(ostr, host='localhost', portno=10888,
                  socketfile='/tmp/.record_roku_socket'):
     ''' send string to specified socket '''
     with OpenUnixSocketClient(host, portno, socketfile) as sock:
+        if not sock:
+            return 'Failed to open socket'
         sock.send('%s\n' % ostr)
         retval = sock.recv(1024)
         return retval
