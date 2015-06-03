@@ -28,7 +28,8 @@ class OpenUnixSocketClient(object):
             addr_obj = (self.host, self.portno)
         self.sock = socket.socket(net_type, stm_type)
         err = self.sock.connect(addr_obj)
-        print(dir(self.sock), err)
+        if err:
+            print(err)
         return self.sock
 
     def __exit__(self, exc_type, exc_value, traceback):
