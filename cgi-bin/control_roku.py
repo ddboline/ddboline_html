@@ -3,39 +3,52 @@
 # enable debugging
 import cgi
 import cgitb
-from urlparse import urlparse
-import os
 cgitb.enable()
 cgitb.enable(display=0, logdir='/tmp')
 
 import socket
 
-def send_command(ostr, host = 'localhost', portno = 10888, socketfile = '/tmp/.record_roku_socket'):
+class OpenUnixSocketClient(object):
+    def __init__(self, host='localhost', portno=10888,
+                 socketfile='/tmp/.record_roku_socket'):
+        self.sock = None
+        self.socketfile = None
+        self.host = host
+        self.portno = portno
+        if socketfile:
+            self.socketfile = socketfile
+    
+    def __enter__(self):
+        stm_type = socket.SOCK_STREAM
+        if self.socketfile:
+            net_type = socket.AF_UNIX
+            addr_obj = self.socketfile
+        else:
+            net_type = socket.AF_INET
+            addr_obj = (self.host, self.portno)
+        self.sock = socket.socket(net_type, stm_type)
+        err = self.sock.connect(addr_obj)
+        print(dir(self.sock), err)
+        return self.sock
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.sock.close()
+        if exc_type or exc_value or traceback:
+            return False
+        else:
+            return True
+
+
+def send_command(ostr, host='localhost', portno=10888,
+                 socketfile='/tmp/.record_roku_socket'):
     ''' send string to specified socket '''
-    import socket
-    net_type = socket.AF_INET
-    stm_type = socket.SOCK_STREAM
-    addr_obj = (host, portno)
-    if socketfile:
-        net_type = socket.AF_UNIX
-        addr_obj = socketfile
+    with OpenUnixSocketClient(host, portno, socketfile) as sock:
+        sock.send('%s\n' % ostr)
+        retval = sock.recv(1024)
+        return retval
 
-    retval = ''
-    s = socket.socket(net_type, stm_type)
-    try:
-        err = s.connect(addr_obj)
-    except:
-        print 'failed to open socket'
-        return False
-
-    s.send('%s\n' % ostr)
-    retval = s.recv(1024)
-    s.close()
-    return retval
-
-
-
-def get_output(val, host = 'localhost', portno = 10888, socketfile = '/tmp/.record_roku_socket'):
+def get_output(val, host='localhost', portno=10888,
+               socketfile='/tmp/.record_roku_socket'):
 
     print "Content-Type: text/html\n\n\n"
     print
@@ -46,9 +59,6 @@ def get_output(val, host = 'localhost', portno = 10888, socketfile = '/tmp/.reco
         return
 
     print ostr.replace('command w','').replace('command','')
-
-    tmpfile = open('/tmp/.remcom_control_file', 'w')
-    tmpfile.write('%s\n' % val)
 
     return
 
