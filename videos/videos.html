@@ -128,7 +128,6 @@ your browser does not support the video tag
     // change input, print output
     function processButtonDataWait( value ) {
         document.getElementById("rokuinput").innerHTML = value;
-//         document.getElementById("rokuoutput").innerHTML = 'waiting';
         send_command_roku( value );
         setTimeout("send_command_roku('output');", 5*1000);
         setTimeout("updateImageRoku();", 5*1000);
@@ -147,7 +146,6 @@ your browser does not support the video tag
     }
     function processTestRunData() {
         document.getElementById("rokuinput").innerHTML = "test run";
-//         document.getElementById("rokuoutput").innerHTML = "waiting";
         send_command_roku( 'test');
         setTimeout("updateImageRoku();",5*1000);
         setTimeout("updateVideoRoku();",5*1000);
@@ -162,7 +160,6 @@ your browser does not support the video tag
             updateImageRemcom();
         }
         document.getElementById("remcominput").innerHTML = value;
-//         document.getElementById("remcomoutput").innerHTML = "waiting";
         xmlhttp.send(null);
     }
     function processButtonDataV( value ) {
@@ -175,7 +172,6 @@ your browser does not support the video tag
             updateImageRemcom();
         }
         document.getElementById("remcominput").innerHTML = value;
-//         document.getElementById("remcomoutput").innerHTML = "waiting";
         xmlhttp.send(null);
     }
     function processFormData2() {
