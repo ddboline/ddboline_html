@@ -2,9 +2,9 @@
 
 # enable debugging
 import cgi
-import cgitb
-cgitb.enable()
-cgitb.enable(display=0, logdir='/tmp')
+#import cgitb
+#cgitb.enable()
+#cgitb.enable(display=0, logdir='/tmp')
 
 import socket
 
