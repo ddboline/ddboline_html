@@ -115,6 +115,8 @@ your browser does not support the video tag
     }
     // cleanup commands, this sends a command, dumps output
     function send_command_roku( command ) {
+        if(command == "")
+            return;
         var ostr = '../../cgi-bin/control_roku.py?cmd=' + command;
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open( "GET", ostr , true );
@@ -150,6 +152,8 @@ your browser does not support the video tag
         setTimeout("send_command_roku('output');", 5*1000);
     }
     function processButtonData2( value ) {
+        if(value == "")
+            return;
         var ostr = '../../cgi-bin/control_remcom.py?cmd=' + value
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open( "GET", ostr , true );
@@ -161,6 +165,8 @@ your browser does not support the video tag
         xmlhttp.send(null);
     }
     function processButtonDataV( value ) {
+        if(value == "")
+            return;
         var ostr = '../../cgi-bin/control_remcom.py?cmd=' + value
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.open( "GET", ostr , true );
