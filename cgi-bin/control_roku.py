@@ -49,8 +49,8 @@ def send_command(ostr, host='localhost', portno=10888,
     with OpenUnixSocketClient(host, portno, socketfile) as sock:
         if not sock:
             return 'Failed to open socket'
-        sock.send(b'%s\n' % ostr)
-        return sock.recv(1024)
+        sock.sendall(b'%s\n' % ostr)
+        return sock.recv(4096)
 
 def get_output(val, host='localhost', portno=10888,
                socketfile='/tmp/.record_roku_socket'):
