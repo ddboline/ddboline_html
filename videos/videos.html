@@ -132,15 +132,15 @@ your browser does not support the video tag
         document.getElementById("rokuinput").innerHTML = value;
         send_command_roku( value );
         setTimeout("send_command_roku('output');", 5*1000);
-        setTimeout("updateImageRoku();", 5*1000);
+        setTimeout("updateImageRoku();", 7*1000);
         setTimeout("send_command_roku('output');", 10*1000);
     }
     function processButtonDataNonThumb( value ) {
         document.getElementById("rokuinput").innerHTML = value;
         send_command_roku( value );
-        setTimeout("send_command_roku('output');", 5*1000);
+//         setTimeout("send_command_roku('output');", 5*1000);
         setTimeout("send_command_roku('thumb');",5*1000);
-        setTimeout("updateImageRoku();", 5*1000);
+        setTimeout("updateImageRoku();", 7*1000);
         setTimeout("send_command_roku('output');", 10*1000);
     }
     function processFormData() {
