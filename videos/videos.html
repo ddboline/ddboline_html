@@ -131,6 +131,7 @@ your browser does not support the video tag
     function processButtonDataWait( value ) {
         document.getElementById("rokuinput").innerHTML = value;
         send_command_roku( value );
+        send_command_roku('output');
         setTimeout("send_command_roku('output');", 5*1000);
         setTimeout("updateImageRoku();", 7*1000);
         setTimeout("send_command_roku('output');", 10*1000);
