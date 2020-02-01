@@ -63,15 +63,15 @@ Um, its been another few years, no real revisions have been made, but I'm postin
   <iframe src="https://www.ddboline.net/weather/index.html" id="weather-frame" height="50" width="100" align="center"></iframe>
   <script>
     !function() {
-    let textarea = document.getElementById('weather-frame');
-    if (textarea) {
-    if (textarea.getAttribute('height')) {
-    textarea.setAttribute('height', Math.floor(window.innerHeight * 300 / 856.));
-    }
-    if (textarea.getAttribute('width')) {
-    textarea.setAttribute('width', Math.floor(window.innerWidth * 1000 / 1105.));
-    }
-    }
+      let textarea = document.getElementById('weather-frame');
+      if (textarea) {
+        if (textarea.getAttribute('height')) {
+          textarea.setAttribute('height', Math.floor(window.innerHeight * 270 / 856.));
+        }
+        if (textarea.getAttribute('width')) {
+          textarea.setAttribute('width', Math.floor(window.innerWidth * 850 / 1105.));
+        }
+      }
     }();
   </script>
 </div>
