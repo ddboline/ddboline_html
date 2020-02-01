@@ -50,11 +50,30 @@ Um, its been another few years, no real revisions have been made, but I'm postin
 
 <p>
 
+<!--
 <div>
 <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/?unit=us" data-label_1="NEW YORK" data-label_2="WEATHER" data-mode="Current" data-theme="original" >NEW YORK WEATHER</a>
 <script>
 !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
 </script>
+</div>
+-->
+
+<div>
+  <iframe src="https://www.ddboline.net/weather/index.html" id="weather-frame" height="50" width="100" align="center"></iframe>
+  <script>
+    !function() {
+    let textarea = document.getElementById('weather-frame');
+    if (textarea) {
+    if (textarea.getAttribute('height')) {
+    textarea.setAttribute('height', Math.floor(window.innerHeight * 300 / 856.));
+    }
+    if (textarea.getAttribute('width')) {
+    textarea.setAttribute('width', Math.floor(window.innerWidth * 1000 / 1105.));
+    }
+    }
+    }();
+  </script>
 </div>
 
 <p>
@@ -63,11 +82,9 @@ Um, its been another few years, no real revisions have been made, but I'm postin
 </p>
 
 <p>
-<a href="../list/tvshows">TV Shows</a>&nbsp;
-<a href="../list/cal?source=all">TV Calendar</a>&nbsp;
-<a href="../list/trakt/watchlist">Trakt Watchlist</a>&nbsp;
-<a href="../list/trakt/cal">Trakt Calendar</a>&nbsp;
-<a href="../list">Full Queue</a>
+<a href="../list/index.html">TV Shows</a>
+<a href="../sync/index.html">Sync</a>
+<a href="../aws/index.html">AWS</a>
 </p>
 
 <p>
