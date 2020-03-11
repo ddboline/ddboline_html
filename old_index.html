@@ -1,0 +1,201 @@
+<html><head>
+<!-- <meta http-equiv="refresh" content="10"> -->
+<style>
+#editor {
+    position: absolute;
+    width: 500px;
+    height: 400px;
+}
+</style>
+<title>Dan's Home Page</title>
+
+</head>
+<body>
+<p>
+<img SRC="IMAGES/TOP95.JPG" height=150 width=150 ALIGN=LEFT>
+</p>
+
+<p>
+<img SRC="IMAGES/main_ring_tunnel.gif" height=150 width=150 ALIGN="right">
+</p>
+
+<h1 ALIGN=CENTER><B>The Home Page</B></h1>
+<h4 ALIGN=CENTER><font SIZE=+2>of</font></h4>
+<H2 ALIGN=CENTER>
+<img SRC="IMAGES/EARTH_IC.GIF" height=31 width=31>
+<B>Daniel Boline</B>
+<img SRC="IMAGES/EARTH_IC.GIF" HEIGHT=31 WIDTH=31>
+</H2>
+<h4 align=center>
+<script LANGUAGE="javascript">
+RightNow=new Date();
+document.write(
+        "Today is " + (RightNow.getMonth()+1)+ "/"+ RightNow.getDate() +"/" + RightNow.getFullYear()
+    )
+</script>
+</h4>
+<p>
+<hr>
+<h3 align="left">Hola!</h3>
+<p align="left">
+Welcome to my truly unremarkable homepage.&nbsp; I began designing it a
+long time ago, and like so many other things, I just kind of put it off.&nbsp;
+So now, many years later, I've decided 	to resurrect the old beast.&nbsp;
+Like most &quot;personal&quot; web pages it sucks, but what do you really expect.&nbsp;
+In it's defense, it isn't nearly as horrible as <a href="https://insti.physics.sunysb.edu/~siegel/plan.html">this</a> </p>
+<!--<p align="left">
+Um, its been another few years, no real revisions have been made, but I'm posting it again, just for the hell of it.  And something else?  Or not?
+</p>-->
+<hr>
+
+<p>
+
+<!--
+<div>
+<a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/?unit=us" data-label_1="NEW YORK" data-label_2="WEATHER" data-mode="Current" data-theme="original" >NEW YORK WEATHER</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+</div>
+-->
+
+<div>
+  <iframe src="https://www.ddboline.net/weather/index.html" id="weather-frame" height="50" width="100" align="center"></iframe>
+  <script>
+    !function() {
+      let textarea = document.getElementById('weather-frame');
+      if (textarea) {
+        if (textarea.getAttribute('height')) {
+          textarea.setAttribute('height', Math.floor(window.innerHeight * 270 / 856.));
+        }
+        if (textarea.getAttribute('width')) {
+          textarea.setAttribute('width', Math.floor(window.innerWidth * 850 / 1105.));
+        }
+      }
+    }();
+  </script>
+</div>
+
+<p>
+<a href="../garmin">Garmin Data</a>&nbsp;
+<a href="../diary/api/index.html">Recent Diary Entries</a>
+</p>
+
+<p>
+<a href="../list/index.html">TV Shows</a>
+<a href="../sync/index.html">Sync</a>
+<a href="../aws/index.html">AWS</a>
+</p>
+
+<p>
+<a href="https://www.ddboline.net:8787/vnc_lite.html">NoVNC Shortcut to dilepton-tower (needs to be started from command line)</a>
+</p>
+
+<p>
+<a href="https://cloud.ddboline.net:8787/vnc_lite.html">NoVNC Shortcut to dilepton-aws (needs to be started from command line)</a>
+</p>
+
+<p>
+<a href="https://localhost:8787/vnc_lite.html">NoVNC Shortcut to localhost (needs to be started from command line)</a>
+</p>
+
+<p>
+<a href="ssh_intrusion_attempts_home.html">SSH Intrusion Attempts broken down by Country of Origin (home)</a><br>
+<a href="apache_intrusion_attempts_home.html">Apache Intrusion Attempts broken down by Country of Origin (home)</a><br>
+<a href="ssh_intrusion_attempts_cloud.html">SSH Intrusion Attempts broken down by Country of Origin (cloud)</a><br>
+<a href="apache_intrusion_attempts_cloud.html">Apache Intrusion Attempts broken down by Country of Origin (cloud)</a><br>
+</p>
+
+<p>
+<a href="scale_measurements.html">Running and weight metrics.</a>
+</p>
+
+<h3 align="left">Links</h3>
+<ul>
+
+<p align="left" style="line-height: 100%" title="Astronomy Picture of the Day">
+<a href="https://apod.nasa.gov/apod/" onfocus="Astronomy Picture of the Day" onblur="APOD">
+Astronomy Picture of the Day</a>
+</p>
+
+<p align="left" style="line-height: 100%" title="Stony Brook Physics">
+<a href="http://www.physics.sunysb.edu/Physics/" onfocus="Stony Brook Dept of Physics" onblur="Physics">
+Stony Brook Dept of Physics</a>
+</p>
+
+<p>
+<a href="The%20Coming%20Technological%20Singularity.html" onfocus="The Coming Technological Singularity.html">The Coming Technological Singularity</a>
+</p>
+<p>
+<a href="The%20Last%20Question.html">The Last Question</a>
+</p>
+
+<p>
+<a href="The%20Woman%20Physicists%20Guide%20to%20Speaking.html">The Woman Physicists Guide to Speaking</a>
+</p>
+
+<p>
+<a href="p90x_videos/">P90 X Videos</a>
+</p>
+
+
+<p>
+<a href="movies/">Movies</a> <a href="movies2/">More Movies</a>
+</p>
+
+<p>
+<a href="television/">television</a>
+</p>
+
+<p>
+<a href="AudioBooks/">Audio Books</a>
+</p>
+
+<p>
+<a href="Music/">Music</a>
+</p>
+
+<p>
+<a href="podcasts/">Podcasts</a>
+</p>
+
+<p>
+<a href="Comics/">Comics</a>
+</p>
+
+<p>
+<a href="Pictures/">Photos</a>
+</p>
+
+<p>
+<a href="video/">Videos</a>
+</p>
+
+<p>
+<a href="TEMP/">TEMP</a>
+</p>
+
+<li>Great source of advanced physics information
+<ul>
+<li><a href="http://web.mit.edu/afs/athena.mit.edu/user/r/e/redingtn/www/netadv/welcome.html">The Net Advance of Physics:</a>
+</ul><li>Giving props to my peeps.  Or something like that
+<ul>
+<!-- <ul><li><a href="EquationSheet.pdf">Vector Equation Sheet</a></ul> -->
+</ul>
+<!-- <p> -->
+
+<p align="left" style="line-height: 100%" title="BU Physics">
+<a href="http://physics.bu.edu" onfocus="BU Dept of Physics" onblur="Physics">
+BU Dept of Physics</a>
+</p>
+
+<a href="https://freedns.afraid.org/">Free DNS</a> Dynamic DNS service.
+
+</ul>
+
+<hr>
+<h5>
+Produced, created, and written by <a href="mailto:ddboline@gmail.com"> Daniel Boline</a>.
+</h5>
+</body>
+</html>
