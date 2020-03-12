@@ -140,39 +140,18 @@ Produced, created, and written by <a href="mailto:ddboline@gmail.com"> Daniel Bo
 </h5>
 
 <script>
-  function loadIframe(url) {
-    let iframe = document.getElementById("main-frame");
-    if (iframe) {
-      iframe.src = url;
-    }
-    if (url == '/weather/plot.html') {
-      updateLocation();
-    }
-  }
-  function updateLocation() {
-        if ("geolocation" in navigator) {
-          navigator.geolocation.getCurrentPosition(
-          function success(position) {
-            console.log("Got position " + position.coords.latitude + " " + position.coords.longitude);
-            let url = "/weather/plot.html?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
-            console.log("url " + url);
-            let weather = document.getElementById("main-frame");
-            if (weather) {
-                weather.src = url;
-            }
-          },
-          function error(error_message) {
-            // for when getting location results in an error
-            console.error('No location retreived', error_message)
-          });
+    function loadIframe(url) {
+        let iframe = document.getElementById("main-frame");
+        if (iframe) {
+            iframe.src = url;
         }
-      }
-      function logout() {
+    }
+    function logout() {
         let url = "/api/auth";
         let xmlhttp = new XMLHttpRequest();
         xmlhttp.open("DELETE", url, true);
         xmlhttp.send(null);
-      }
+    }
 </script>
 
 </body>
