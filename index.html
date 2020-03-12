@@ -122,27 +122,6 @@ Produced, created, and written by <a href="mailto:ddboline@gmail.com"> Daniel Bo
     if (iframe) {
       iframe.src = url;
     }
-    if (url == 'weather.html') {
-      updateLocation();
-    }
-  }
-  function updateLocation() {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-      function success(position) {
-        console.log("Got position " + position.coords.latitude + " " + position.coords.longitude);
-        let url = "weather.html?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
-        console.log("url " + url);
-        let weather = document.getElementById("main-frame");
-        if (weather) {
-            weather.src = url;
-        }
-      },
-      function error(error_message) {
-        // for when getting location results in an error
-        console.error('No location retreived', error_message)
-      });
-    }
   }
   function logout() {
     let url = "/api/auth";
