@@ -13,7 +13,7 @@
 <body>
 
 <p>
-<input type="button" name="weather" value="Weather" onclick="loadIframe('/weather/plot.html');"/>
+<input type="button" name="weather" value="Weather" onclick="loadIframe('weather.html');"/>
 <input type="button" name="garmin" value="Garmin" onclick="loadIframe('/garmin');"/>
 <input type="button" name="diary" value="Diary" onclick="loadIframe('/diary/api/index.html');"/>
 <input type="button" name="tvshows" value="TV Shows" onclick="loadIframe('/list/index.html');"/>
@@ -24,7 +24,7 @@
 </p>
     
 <div>
-  <iframe src="/weather/plot.html" id="main-frame" height="50" width="100" align="center"></iframe>
+  <iframe src="weather.html" id="main-frame" height="50" width="100" align="center"></iframe>
   <script>
     !function() {
       let textarea = document.getElementById('main-frame');
