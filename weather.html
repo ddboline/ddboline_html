@@ -1,0 +1,39 @@
+<html>
+<body>
+  <div>
+    <input type="button" name="update_location" value="Update Location" onclick="updateLocation();"/>
+    <br>
+    <iframe src="/weather/plot.html?zip=10001" id="weather-frame" height="100" width="100" align="center"></iframe>
+    <script>
+      !function() {
+        let textarea = document.getElementById('weather-frame');
+        if (textarea) {
+          if (textarea.getAttribute('height')) {
+            textarea.setAttribute('height', Math.floor(window.innerHeight * 650 / 856.));
+          }
+          if (textarea.getAttribute('width')) {
+            textarea.setAttribute('width', Math.floor(window.innerWidth * 850 / 1105.));
+          }
+        }
+      }();
+      function updateLocation() {
+        if ("geolocation" in navigator) {
+          navigator.geolocation.getCurrentPosition(
+          function success(position) {
+            console.log("Got position " + position.coords.latitude + " " + position.coords.longitude);
+            let url = "/weather/plot.html?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
+            console.log("url " + url);
+            let weather = document.getElementById("weather-frame");
+            if (weather) {
+                weather.src = url;
+            }
+          },
+          function error(error_message) {
+            // for when getting location results in an error
+            console.error('No location retreived', error_message)
+          });
+        }
+      }
+    </script>
+  </div>
+</body>
