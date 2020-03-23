@@ -2,9 +2,12 @@
 <body>
   <div>
     <input type="button" name="update_location" value="Update Location" onclick="updateLocation();"/>
+    <input type="button" name="text" value="Text" onclick="displayText();"/>
+    <input type="button" name="plot" value="Plot" onclick="displayPlot();"/>
     <br>
     <iframe src="/weather/plot.html?zip=10001" id="weather-frame" height="100" width="100" align="center"></iframe>
     <script>
+      let location = '';
       !function() {
         let textarea = document.getElementById('weather-frame');
         if (textarea) {
@@ -16,17 +19,29 @@
           }
         }
       }();
+      function displayText() {
+        let url = "/weather/index.html" + location;
+        console.log("url " + url);
+        let weather = document.getElementById("weather-frame");
+        if (weather) {
+          weather.src = url;
+        }
+      }
+      function displayPlot() {
+        let url = "/weather/plot.html" + location;
+        console.log("url " + url);
+        let weather = document.getElementById("weather-frame");
+        if (weather) {
+          weather.src = url;
+        }
+      }
       function updateLocation() {
         if ("geolocation" in navigator) {
           navigator.geolocation.getCurrentPosition(
           function success(position) {
             console.log("Got position " + position.coords.latitude + " " + position.coords.longitude);
-            let url = "/weather/plot.html?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
-            console.log("url " + url);
-            let weather = document.getElementById("weather-frame");
-            if (weather) {
-                weather.src = url;
-            }
+            location = "?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
+            displayText();
           },
           function error(error_message) {
             // for when getting location results in an error
