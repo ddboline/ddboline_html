@@ -7,8 +7,8 @@
     <br>
     <iframe src="/weather/plot.html?zip=10001" id="weather-frame" height="100" width="100" align="center"></iframe>
     <script>
-      let location = '';
       !function() {
+        var current_location = "";
         let textarea = document.getElementById('weather-frame');
         if (textarea) {
           if (textarea.getAttribute('height')) {
@@ -20,7 +20,7 @@
         }
       }();
       function displayText() {
-        let url = "/weather/index.html" + location;
+        let url = "/weather/index.html" + current_location;
         console.log("url " + url);
         let weather = document.getElementById("weather-frame");
         if (weather) {
@@ -28,7 +28,7 @@
         }
       }
       function displayPlot() {
-        let url = "/weather/plot.html" + location;
+        let url = "/weather/plot.html" + current_location;
         console.log("url " + url);
         let weather = document.getElementById("weather-frame");
         if (weather) {
@@ -40,7 +40,8 @@
           navigator.geolocation.getCurrentPosition(
           function success(position) {
             console.log("Got position " + position.coords.latitude + " " + position.coords.longitude);
-            location = "?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
+            current_location = "?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
+            console.log("location " + current_location);
             displayText();
           },
           function error(error_message) {
