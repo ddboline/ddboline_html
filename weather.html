@@ -8,7 +8,9 @@
     <iframe src="/weather/plot.html?zip=10001" id="weather-frame" height="100" width="100" align="center"></iframe>
     <script>
       !function() {
-        var current_location = "";
+        if (typeof current_location == "undefined") {
+          var current_location = "";
+        }
         let textarea = document.getElementById('weather-frame');
         if (textarea) {
           if (textarea.getAttribute('height')) {
@@ -21,6 +23,9 @@
       }();
       function displayText() {
         let url = "/weather/index.html";
+        if (typeof current_location == "undefined") {
+          var current_location = "";
+        }
         if (current_location) {
           url += current_location;
         }
@@ -32,6 +37,9 @@
       }
       function displayPlot() {
         let url = "/weather/plot.html";
+        if (typeof current_location == "undefined") {
+          var current_location = "";
+        }
         if (current_location) {
           url += current_location;
         }
