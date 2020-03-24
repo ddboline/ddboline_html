@@ -20,7 +20,10 @@
         }
       }();
       function displayText() {
-        let url = "/weather/index.html" + current_location;
+        let url = "/weather/index.html";
+        if (current_location) {
+          url += current_location;
+        }
         console.log("url " + url);
         let weather = document.getElementById("weather-frame");
         if (weather) {
@@ -28,7 +31,10 @@
         }
       }
       function displayPlot() {
-        let url = "/weather/plot.html" + current_location;
+        let url = "/weather/plot.html";
+        if (current_location) {
+          url += current_location;
+        }
         console.log("url " + url);
         let weather = document.getElementById("weather-frame");
         if (weather) {
