@@ -56,7 +56,7 @@
             console.log("Got position " + position.coords.latitude + " " + position.coords.longitude);
             current_location = "?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude;
             console.log("location " + current_location);
-            displayText();
+            displayPlot();
           },
           function error(error_message) {
             // for when getting location results in an error
