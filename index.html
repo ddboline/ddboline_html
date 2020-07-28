@@ -122,10 +122,16 @@ Produced, created, and written by <a href="mailto:ddboline@gmail.com"> Daniel Bo
     }
   }
   function logout() {
-    let url = "/api/auth";
-    let xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("DELETE", url, true);
-    xmlhttp.send(null);
+      let url = "/api/auth";
+      let xmlhttp = new XMLHttpRequest();
+      xmlhttp.onload = function() {
+          let iframe = document.getElementById("main-frame");
+          if (iframe) {
+              iframe.src = url;
+          }
+      }
+      xmlhttp.open("DELETE", url, true);
+      xmlhttp.send(null);
   }
 </script>
 
