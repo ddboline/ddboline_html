@@ -4,12 +4,18 @@
     <input type="button" name="update_location" value="Update Location" onclick="updateLocation();"/>
     <input type="button" name="text" value="Text" onclick="displayText();"/>
     <input type="button" name="plot" value="Plot" onclick="displayPlot();"/>
+    <form>
+      <input type="text" name="location" value="" id="locationForm"/>
+      <input type="button" name="submitLocation" value="Location" onclick="updateLocation()"/>
+    </form>
     <br>
     <iframe src="/weather/plot.html?zip=10001" id="weather-frame" height="100" width="100" align="center"></iframe>
     <script>
+      let current_location = "";
+      let url = '/weather/index.html';
       !function() {
         if (typeof current_location == "undefined") {
-          var current_location = "";
+          current_location = "";
         }
         let textarea = document.getElementById('weather-frame');
         if (textarea) {
@@ -22,12 +28,14 @@
         }
       }();
       function displayText() {
-        let url = "/weather/index.html";
+        url = "/weather/index.html";
+        console.log(typeof current_location);
         if (typeof current_location == "undefined") {
-          var current_location = "";
+          current_location = "";
         }
         if (current_location) {
-          url += current_location;
+          url = url + current_location;
+          console.log(url + " " + current_location);
         }
         console.log("url " + url);
         let weather = document.getElementById("weather-frame");
@@ -36,12 +44,14 @@
         }
       }
       function displayPlot() {
-        let url = "/weather/plot.html";
+        url = "/weather/plot.html";
+        console.log(typeof current_location);
         if (typeof current_location == "undefined") {
-          var current_location = "";
+          current_location = "";
         }
         if (current_location) {
-          url += current_location;
+          url = url + current_location;
+          console.log(url + " " + current_location);
         }
         console.log("url " + url);
         let weather = document.getElementById("weather-frame");
@@ -50,7 +60,11 @@
         }
       }
       function updateLocation() {
-        if ("geolocation" in navigator) {
+        if(document.getElementById('locationForm').value != "") {
+          current_location = "?" + document.getElementById('locationForm').value;
+          console.log(current_location);
+          displayPlot();
+        } else if ("geolocation" in navigator) {
           navigator.geolocation.getCurrentPosition(
           function success(position) {
             console.log("Got position " + position.coords.latitude + " " + position.coords.longitude);
