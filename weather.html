@@ -62,6 +62,7 @@
       function updateLocation() {
         if(document.getElementById('locationForm').value != "") {
           current_location = "?" + document.getElementById('locationForm').value;
+          document.getElementById('locationForm').value = "";
           console.log(current_location);
           displayPlot();
         } else if ("geolocation" in navigator) {
