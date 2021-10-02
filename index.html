@@ -48,13 +48,13 @@
 <input type="button" name="apache_int_cloud" value="Apache Intrusion Attempts broken down by Country of Origin (cloud)" onclick="loadIframe('/security_log/intrusion_attempts/apache/cloud');"/><br>
 </p>
 
-<div><h3><a href="/swaggerui/?url=/api/openapi/json" target="_blank">Auth Server Api Docs</a></h3></div>
-<div><h3><a href="/swaggerui/?url=/aws/openapi/json" target="_blank">AWS Api Docs</a></h3></div>
-<div><h3><a href="/swaggerui/?url=/calendar/openapi/json" target="_blank">Calendar Api Docs</a></h3></div>
-<div><h3><a href="/swaggerui/?url=/diary/api/openapi/json" target="_blank">Diary Api Docs</a></h3></div>
-<div><h3><a href="/swaggerui/?url=/garmin/openapi/json" target="_blank">Garmin Api Docs</a></h3></div>
-<div><h3><a href="/swaggerui/?url=/list/openapi/json" target="_blank">Movie Api Docs</a></h3></div>
-<div><h3><a href="/swaggerui/?url=/sync/openapi/json" target="_blank">Sync Api Docs</a></h3></div>
+<div><input type="button" name="auth_docs" value="Auth Server Api Docs" onclick="loadIframe('/swaggerui/?url=/api/openapi/json');"/></div>
+<div><input type="button" name="auth_docs" value="AWS Api Docs" onclick="loadIframe('/swaggerui/?url=/aws/openapi/json');"/></div>
+<div><input type="button" name="auth_docs" value="Calendar Api Docs" onclick="loadIframe('/swaggerui/?url=/calendar/openapi/json');"/></div>
+<div><input type="button" name="auth_docs" value="Diary Api Docs" onclick="loadIframe('/swaggerui/?url=/diary/api/openapi/json');"/></div>
+<div><input type="button" name="auth_docs" value="Garmin Api Docs" onclick="loadIframe('/swaggerui/?url=/garmin/openapi/json');"/></div>
+<div><input type="button" name="auth_docs" value="Movie Api Docs" onclick="loadIframe('/swaggerui/?url=/list/openapi/json');"/></div>
+<div><input type="button" name="auth_docs" value="Sync Api Docs" onclick="loadIframe('/swaggerui/?url=/sync/openapi/json');"/></div>
 
 <h3 align="left">Links</h3>
 <ul>
@@ -150,18 +150,6 @@ Produced, created, and written by <a href="mailto:ddboline@gmail.com"> Daniel Bo
         if (iframe) {
             iframe.src = url;
         }
-    }
-    function logout() {
-        let url = "/api/auth";
-        let xmlhttp = new XMLHttpRequest();
-        xmlhttp.onload = function() {
-            let iframe = document.getElementById("main-frame");
-            if (iframe) {
-              iframe.src = url;
-            }
-        }
-        xmlhttp.open("DELETE", url, true);
-        xmlhttp.send(null);
     }
 </script>
 
