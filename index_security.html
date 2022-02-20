@@ -1,0 +1,31 @@
+<html>
+<body>
+  <div>
+    <input type="button" name="ssh_int_home" value="SSH Intrusion Attempts broken down by Country of Origin (home)" onclick="loadIframeSecurity('/security_log/intrusion_attempts/all?service=ssh&location=home');"/><br>
+    <input type="button" name="apache_int_home" value="Apache Intrusion Attempts broken down by Country of Origin (home)" onclick="loadIframeSecurity('/security_log/intrusion_attempts/all?service=nginx&location=home');"/><br>
+    <input type="button" name="ssh_int_cloud" value="SSH Intrusion Attempts broken down by Country of Origin (cloud)" onclick="loadIframeSecurity('/security_log/intrusion_attempts/all?service=ssh&location=cloud');"/><br>
+    <input type="button" name="apache_int_cloud" value="Apache Intrusion Attempts broken down by Country of Origin (cloud)" onclick="loadIframeSecurity('/security_log/intrusion_attempts/all?service=nginx&location=cloud');"/><br>
+    <iframe src="/security_log/intrusion_attempts/all?service=ssh&location=home" id="security-frame" height="100" width="100" align="center"></iframe>
+    <script>
+        !function() {
+        let textarea = document.getElementById('security-frame');
+        if (textarea) {
+            if (textarea.getAttribute('height')) {
+            textarea.setAttribute('height', Math.floor(window.innerHeight * 750 / 856.));
+            }
+            if (textarea.getAttribute('width')) {
+            textarea.setAttribute('width', Math.floor(window.innerWidth * 1050 / 1105.));
+            }
+        }
+        }();
+    </script>
+  </div>
+<script>
+    function loadIframeSecurity(url) {
+        let iframe = document.getElementById("security-frame");
+        if (iframe) {
+            iframe.src = url;
+        }
+    }
+</script>
+</body>
