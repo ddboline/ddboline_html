@@ -1,11 +1,24 @@
 <html>
 <body>
   <div>
-    <input type="button" name="ssh_int_home" value="SSH Intrusion Attempts broken down by Country of Origin (home)" onclick="loadIframeSecurity('/security_log/intrusion_attempts/all?service=ssh&location=home');"/><br>
-    <input type="button" name="apache_int_home" value="Apache Intrusion Attempts broken down by Country of Origin (home)" onclick="loadIframeSecurity('/security_log/intrusion_attempts/all?service=nginx&location=home');"/><br>
-    <input type="button" name="ssh_int_cloud" value="SSH Intrusion Attempts broken down by Country of Origin (cloud)" onclick="loadIframeSecurity('/security_log/intrusion_attempts/all?service=ssh&location=cloud');"/><br>
-    <input type="button" name="apache_int_cloud" value="Apache Intrusion Attempts broken down by Country of Origin (cloud)" onclick="loadIframeSecurity('/security_log/intrusion_attempts/all?service=nginx&location=cloud');"/><br>
-    <iframe src="/security_log/intrusion_attempts/all?service=ssh&location=home" id="security-frame" height="100" width="100" align="center"></iframe>
+    <form>
+        <select id="type_id">
+            <option value="/all">parquet</option>
+            <option value="">db</option>
+        </select>
+        <select id="service_id">
+            <option value="ssh">ssh</option>
+            <option value="nginx">nginx</option>
+            <option value="apache">apache</option>
+        </select>
+        <select id="host_id">
+            <option value="home">home</option>
+            <option value="cloud">cloud</option>
+        </select>
+        <input type="number" name="Number of Days" value=30 id="ndays_id"/>
+        <input type="button" name="updateMap" value="Submit" onclick="loadSecurityLog('type_id', 'service_id', 'host_id', 'ndays_id')"/>
+    </form>
+    <iframe src="/security_log/intrusion_attempts/all?service=ssh&location=home&ndays=30" id="security-frame" height="100" width="100" align="center"></iframe>
     <script>
         !function() {
         let textarea = document.getElementById('security-frame');
@@ -26,6 +39,17 @@
         if (iframe) {
             iframe.src = url;
         }
+    }
+    function loadSecurityLog(type_id, service_id, host_id, ndays_id) {
+        let type = document.getElementById(type_id).value;
+        let service = document.getElementById(service_id).value;
+        let host = document.getElementById(host_id).value;
+        let ndays = document.getElementById(ndays_id).value;
+        let url = '/security_log/intrusion_attempts' + type + '?service=' + service + '&location=' + host;
+        if(ndays) {
+            url = url + '&ndays=' + ndays;
+        }
+        loadIframeSecurity(url);
     }
 </script>
 </body>
