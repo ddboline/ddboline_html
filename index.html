@@ -22,6 +22,8 @@
 <input type="button" name="sync" value="Sync" onclick="loadIframe('/sync/index.html');"/>
 <input type="button" name="aws" value="AWS" onclick="loadIframe('/aws/index.html');"/>
 <input type="button" name="login" value="Login" onclick="loadIframe('/auth/index.html');"/>
+<input type="button" name="security" value="Security" onclick="loadIframe('index_security.html');"/>
+<input type="button" name="openapi" value="OpenApi" onclick="loadIframe('index_openapi.html');"/>
 </p>
     
 <div>
@@ -40,21 +42,6 @@
     }();
   </script>
 </div>
-
-<p>
-<input type="button" name="ssh_int_home" value="SSH Intrusion Attempts broken down by Country of Origin (home)" onclick="loadIframe('/security_log/intrusion_attempts/ssh/home');"/><br>
-<input type="button" name="apache_int_home" value="Apache Intrusion Attempts broken down by Country of Origin (home)" onclick="loadIframe('/security_log/intrusion_attempts/apache/home');"/><br>
-<input type="button" name="ssh_int_cloud" value="SSH Intrusion Attempts broken down by Country of Origin (cloud)" onclick="loadIframe('/security_log/intrusion_attempts/ssh/cloud');"/><br>
-<input type="button" name="apache_int_cloud" value="Apache Intrusion Attempts broken down by Country of Origin (cloud)" onclick="loadIframe('/security_log/intrusion_attempts/apache/cloud');"/><br>
-</p>
-
-<div><input type="button" name="auth_docs" value="Auth Server Api Docs" onclick="loadIframe('/swaggerui/?url=/api/openapi/json');"/></div>
-<div><input type="button" name="auth_docs" value="AWS Api Docs" onclick="loadIframe('/swaggerui/?url=/aws/openapi/json');"/></div>
-<div><input type="button" name="auth_docs" value="Calendar Api Docs" onclick="loadIframe('/swaggerui/?url=/calendar/openapi/json');"/></div>
-<div><input type="button" name="auth_docs" value="Diary Api Docs" onclick="loadIframe('/swaggerui/?url=/diary/api/openapi/json');"/></div>
-<div><input type="button" name="auth_docs" value="Garmin Api Docs" onclick="loadIframe('/swaggerui/?url=/garmin/openapi/json');"/></div>
-<div><input type="button" name="auth_docs" value="Movie Api Docs" onclick="loadIframe('/swaggerui/?url=/list/openapi/json');"/></div>
-<div><input type="button" name="auth_docs" value="Sync Api Docs" onclick="loadIframe('/swaggerui/?url=/sync/openapi/json');"/></div>
 
 <h3 align="left">Links</h3>
 <ul>
