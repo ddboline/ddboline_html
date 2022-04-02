@@ -4,6 +4,7 @@
     <input type="button" name="update_location" value="Update Location" onclick="updateLocation();"/>
     <input type="button" name="text" value="Text" onclick="displayText();"/>
     <input type="button" name="plot" value="Plot" onclick="displayPlot();"/>
+    <input type="button" name="wasm" value="Wasm" onclick="displayWasmWeather();"/>
     <form>
       <input type="text" name="location" value="" id="locationForm"/>
       <input type="button" name="submitLocation" value="Location" onclick="updateLocation()"/>
@@ -77,6 +78,13 @@
             // for when getting location results in an error
             console.error('No location retreived', error_message)
           });
+        }
+      }
+      function displayWasmWeather() {
+        url = "/wasm_weather/index.html";
+        let weather = document.getElementById("weather-frame");
+        if (weather) {
+          weather.src = url;
         }
       }
     </script>
