@@ -789,6 +789,13 @@ imports.wbg.__wbg_value_ccb32485ee1b3928 = function(arg0, arg1) {
     getInt32Memory0()[arg0 / 4 + 1] = len0;
     getInt32Memory0()[arg0 / 4 + 0] = ptr0;
 };
+imports.wbg.__wbg_origin_486b350035be1f11 = function() { return handleError(function (arg0, arg1) {
+    const ret = getObject(arg1).origin;
+    const ptr0 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+    const len0 = WASM_VECTOR_LEN;
+    getInt32Memory0()[arg0 / 4 + 1] = len0;
+    getInt32Memory0()[arg0 / 4 + 0] = ptr0;
+}, arguments) };
 imports.wbg.__wbg_search_4aac147f005678e5 = function() { return handleError(function (arg0, arg1) {
     const ret = getObject(arg1).search;
     const ptr0 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
@@ -1088,19 +1095,19 @@ imports.wbg.__wbindgen_memory = function() {
     const ret = wasm.memory;
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper674 = function(arg0, arg1, arg2) {
+imports.wbg.__wbindgen_closure_wrapper675 = function(arg0, arg1, arg2) {
     const ret = makeMutClosure(arg0, arg1, 212, __wbg_adapter_34);
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper676 = function(arg0, arg1, arg2) {
+imports.wbg.__wbindgen_closure_wrapper677 = function(arg0, arg1, arg2) {
     const ret = makeClosure(arg0, arg1, 212, __wbg_adapter_37);
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper852 = function(arg0, arg1, arg2) {
+imports.wbg.__wbindgen_closure_wrapper853 = function(arg0, arg1, arg2) {
     const ret = makeMutClosure(arg0, arg1, 319, __wbg_adapter_40);
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper924 = function(arg0, arg1, arg2) {
+imports.wbg.__wbindgen_closure_wrapper925 = function(arg0, arg1, arg2) {
     const ret = makeMutClosure(arg0, arg1, 355, __wbg_adapter_43);
     return addHeapObject(ret);
 };
@@ -1139,7 +1146,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('weather-index-59224d1e872c2389_bg.wasm', import.meta.url);
+        input = new URL('weather-index-be9bd38df564b5f8_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 
