@@ -1037,6 +1037,30 @@ imports.wbg.__wbg_isSafeInteger_8c4789029e885159 = function(arg0) {
     const ret = Number.isSafeInteger(getObject(arg0));
     return ret;
 };
+imports.wbg.__wbg_getUTCDate_34b5364eafe5f257 = function(arg0) {
+    const ret = getObject(arg0).getUTCDate();
+    return ret;
+};
+imports.wbg.__wbg_getUTCFullYear_069ce4029b319354 = function(arg0) {
+    const ret = getObject(arg0).getUTCFullYear();
+    return ret;
+};
+imports.wbg.__wbg_getUTCHours_e16992b634125a84 = function(arg0) {
+    const ret = getObject(arg0).getUTCHours();
+    return ret;
+};
+imports.wbg.__wbg_getUTCMinutes_34d2a4f0ac8600a3 = function(arg0) {
+    const ret = getObject(arg0).getUTCMinutes();
+    return ret;
+};
+imports.wbg.__wbg_getUTCMonth_3004825cce2dc401 = function(arg0) {
+    const ret = getObject(arg0).getUTCMonth();
+    return ret;
+};
+imports.wbg.__wbg_new0_25059e40b1c02766 = function() {
+    const ret = new Date();
+    return addHeapObject(ret);
+};
 imports.wbg.__wbg_resolve_fd40f858d9db1a04 = function(arg0) {
     const ret = Promise.resolve(getObject(arg0));
     return addHeapObject(ret);
@@ -1098,11 +1122,11 @@ imports.wbg.__wbindgen_memory = function() {
     const ret = wasm.memory;
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper385 = function(arg0, arg1, arg2) {
+imports.wbg.__wbindgen_closure_wrapper391 = function(arg0, arg1, arg2) {
     const ret = makeMutClosure(arg0, arg1, 154, __wbg_adapter_42);
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper684 = function(arg0, arg1, arg2) {
+imports.wbg.__wbindgen_closure_wrapper690 = function(arg0, arg1, arg2) {
     const ret = makeMutClosure(arg0, arg1, 279, __wbg_adapter_45);
     return addHeapObject(ret);
 };
@@ -1144,7 +1168,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('weather_api_wasm-be6cebdd1d2f159c_bg.wasm', import.meta.url);
+        input = new URL('weather_api_wasm-afd13ec29b42b0e_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 
