@@ -1168,7 +1168,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('weather_api_wasm-afd13ec29b42b0e_bg.wasm', import.meta.url);
+        input = new URL('weather_api_wasm-5f3437a85700ef87_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 
