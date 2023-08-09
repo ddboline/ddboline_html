@@ -1126,8 +1126,8 @@ imports.wbg.__wbindgen_closure_wrapper391 = function(arg0, arg1, arg2) {
     const ret = makeMutClosure(arg0, arg1, 154, __wbg_adapter_42);
     return addHeapObject(ret);
 };
-imports.wbg.__wbindgen_closure_wrapper690 = function(arg0, arg1, arg2) {
-    const ret = makeMutClosure(arg0, arg1, 279, __wbg_adapter_45);
+imports.wbg.__wbindgen_closure_wrapper691 = function(arg0, arg1, arg2) {
+    const ret = makeMutClosure(arg0, arg1, 280, __wbg_adapter_45);
     return addHeapObject(ret);
 };
 imports['./snippets/dioxus-interpreter-js-1676574062e4c953/inline0.js'] = __wbg_star0;
@@ -1168,7 +1168,7 @@ function initSync(module) {
 
 async function init(input) {
     if (typeof input === 'undefined') {
-        input = new URL('weather_api_wasm-5f3437a85700ef87_bg.wasm', import.meta.url);
+        input = new URL('weather_api_wasm-897454660d6d1525_bg.wasm', import.meta.url);
     }
     const imports = getImports();
 
