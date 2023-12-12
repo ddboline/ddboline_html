@@ -2,7 +2,7 @@
 
 set -e;
 
-DEPLOY_DIRECTORY=/var/www/www.ddboline.net/html/;
+DEPLOY_DIRECTORY=/var/www/cloud.ddboline.net/html/;
 
 rm -rf ${DEPLOY_DIRECTORY}/*
 
